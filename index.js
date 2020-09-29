@@ -18,8 +18,8 @@ const logger = createLogger({
     myFormat
   ),
   transports: [
-    new transports.File({ filename: 'error.log', level: 'error' }),
-    new transports.File({ filename: 'combined.log' })
+    new transports.File({ dirname: 'services/xbox-price-checker', filename: 'error.log', level: 'error' }),
+    new transports.File({ dirname: 'services/xbox-price-checker', filename: 'combined.log' })
   ]
 })
 
@@ -29,9 +29,9 @@ const crawl = new Crawler({
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0',
     'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36'
   ]
-})
+});
 
-const checkers = [
+[
   {
     name: 'Game',
     uri: 'https://www.game.co.uk/en/xbox-series-x-2831406#preorder',
