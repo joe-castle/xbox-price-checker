@@ -89,7 +89,7 @@ const checkers = [
           method: 'POST',
           body: { value1: name, value2: uri }
         })
-          .then((res) => res.json())
+          .then((res) => res.text())
           .then((res) => logger.info(`Sent in-stock notification for ${name}`))
           .catch((err) => logger.error(err))
 
