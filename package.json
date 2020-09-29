@@ -1,0 +1,15 @@
+{
+  "name": "xbox-price-checker",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/joesmith100/xbox-price-checker.git",
+  "author": "Joe <joesmith0488@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "crawler": "^1.2.2",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1",
+    "scrape-it": "^5.2.4",
+    "winston": "^3.3.3"
+  }
+}
