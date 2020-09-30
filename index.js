@@ -7,19 +7,18 @@ const { combine, timestamp, label, printf } = format
 const { MAKER_KEY } = process.env
 
 const myFormat = printf(({ level, message, label, timestamp }) => {
-  return `${timestamp} [${label}] ${level}: ${message}`
+  return `${timestamp} ${level}: ${message}`
 });
 
 const logger = createLogger({
   level: 'info',
   format: combine(
-    label({ label: 'Checking stock' }),
     timestamp(),
     myFormat
   ),
   transports: [
-    new transports.File({ dirname: 'services/xbox-price-checker', filename: 'error.log', level: 'error' }),
-    new transports.File({ dirname: 'services/xbox-price-checker', filename: 'combined.log' })
+    new transports.File({ dirname: __dirname, filename: 'error.log', level: 'error' }),
+    new transports.File({ dirname: __dirname, filename: 'combined.log' })
   ]
 })
 
@@ -85,9 +84,9 @@ const crawl = new Crawler({
       if (inStock(res.$, res.body)) {
         logger.info(`In stock at ${name}!`)
 
-        fetch(`https://maker.ifttt.com/trigger/speed_dropped/with/key/${MAKER_KEY}`, {
+        fetch(`https://maker.ifttt.com/trigger/xbox-available/with/key/${MAKER_KEY}`, {
           method: 'POST',
-          body: { value1: name, value2: uri }
+          body: JSON.stringify({ value1: name, value2: uri })
         })
           .then((res) => res.text())
           .then((res) => logger.info(`Sent in-stock notification for ${name}`))
