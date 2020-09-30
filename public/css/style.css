@@ -1,0 +1,19 @@
+body {
+  background: rgb(226, 225, 224);
+}
+
+h1 {
+  margin-bottom: 50px;
+}
+
+.in-stock {
+  background: rgb(31, 185, 57);
+}
+
+.out-of-stock {
+  background: rgb(202, 26, 26);
+}
+
+a {
+  color: white;
+}
