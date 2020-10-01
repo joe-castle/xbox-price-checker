@@ -1,0 +1,2 @@
+module.exports.formatDate = (dateTime = new Date()) =>
+  `${dateTime.getDate()}/${(dateTime.getMonth() + 1)}/${dateTime.getFullYear()} ${dateTime.getHours()}:${dateTime.getMinutes()}:${dateTime.getSeconds()}`

@@ -3,6 +3,7 @@ const Crawler = require('crawler')
 
 const logger = require('./logger')('STOCK')
 const checkers = require('./checkers')
+const { formatDate } = require('./util')
 
 const { MAKER_KEY } = process.env
 
@@ -28,6 +29,7 @@ module.exports = () => checkers.forEach((checker) => {
         logger.info(`In stock at ${name}!`)
 
         checker.inStock = true
+        checker.updated = formatDate()
 
         fetch(`https://maker.ifttt.com/trigger/xbox-available/with/key/${MAKER_KEY}`, {
           method: 'POST',
@@ -41,6 +43,7 @@ module.exports = () => checkers.forEach((checker) => {
         logger.info(`Out of stock at ${name}.`)
 
         checker.inStock = false
+        checker.updated = formatDate()
       }
 
       done()
