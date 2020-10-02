@@ -43,8 +43,8 @@ module.exports = [
   },
   {
     name: 'AO',
-    uri: 'https://ao.com/l/search/101/99/?search=xbox%20series%20x',
-    isInStock: ($, body) => body.includes('Xbox Series X'),
+    uri: 'https://ao.com/product/rrt00007-xbox-series-x-console-black-79481-291.aspx',
+    isInStock: ($) => !$('.bg-lightgreen .text-left .text-title-sm.block').text().includes('Back in stock soon'),
     inStock: false,
     updated: formatDate(),
     image: 'https://media.ao.com/Themes/Clients/AOL/AOL/Images/AO-logo-green-exclusion.png'
