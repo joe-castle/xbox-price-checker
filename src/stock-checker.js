@@ -33,6 +33,7 @@ module.exports = () => checkers.forEach((checker) => {
 
         fetch(`https://maker.ifttt.com/trigger/xbox-available/with/key/${MAKER_KEY}`, {
           method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ value1: name, value2: uri })
         })
           .then((res) => res.text())

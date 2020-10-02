@@ -10,6 +10,8 @@ const htmlLogger = require('./src/logger')('HTML')
 
 const { PORT, CRON } = process.env
 
+stockChecker()
+
 cron.schedule(CRON, () => {
   cronLogger.info('Executing cron job for stock checker.')
   stockChecker()
