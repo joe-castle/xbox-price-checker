@@ -5,6 +5,9 @@
   "repository": "https://github.com/joesmith100/xbox-price-checker.git",
   "author": "Joe <joesmith0488@gmail.com>",
   "license": "MIT",
+  "scripts": {
+	"start": "node ./index.js"
+  },
   "dependencies": {
     "crawler": "^1.2.2",
     "dotenv": "^8.2.0",

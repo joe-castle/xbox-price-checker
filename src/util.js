@@ -1,2 +1,6 @@
+function pad(num) {
+  return num <= 9 ? '0' + num : num
+}
+
 module.exports.formatDate = (dateTime = new Date()) =>
-  `${dateTime.getDate()}/${(dateTime.getMonth() + 1)}/${dateTime.getFullYear()} ${dateTime.getHours()}:${dateTime.getMinutes()}:${dateTime.getSeconds()}`
+  `${pad(dateTime.getDate())}/${pad(dateTime.getMonth() + 1)}/${pad(dateTime.getFullYear())} ${pad(dateTime.getHours())}:${pad(dateTime.getMinutes())}`
