@@ -1,5 +1,7 @@
 const { formatDate } = require('./util')
 
+const { EXCLUDE_CHECKERS } = process.env
+
 module.exports = [
   {
     name: 'Game',
@@ -67,4 +69,4 @@ module.exports = [
     updated: formatDate(),
     image: 'https://image.ebuyer.com/customer/promos/brand_guidelines_2015/ebuyer-black-text-logo-2015.jpg'
   }
-]
+].filter((checker) => !EXCLUDE_CHECKERS.split(',').includes(checker.name.toLowerCase()))
