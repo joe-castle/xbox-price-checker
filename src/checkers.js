@@ -32,7 +32,7 @@ module.exports = [
   {
     name: 'Argos',
     uri: 'https://www.argos.co.uk/list/pre-order-xbox-series-x-and-series-s-and-more?tag=ar:search:m020:xboxseries-preorder',
-    isInStock: ($) => $('div[data-product-id=6799030] img[alt="out_of_stock badge"]').length <= 0,
+    isInStock: ($) => $('div[data-product-id=6799030] img[alt="out of stock"]').length <= 0,
     inStock: false,
     updated: formatDate(),
     image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Argos_logo.svg/1200px-Argos_logo.svg.png'
@@ -48,7 +48,7 @@ module.exports = [
   {
     name: 'AO',
     uri: 'https://ao.com/product/rrt00007-xbox-series-x-console-black-79481-291.aspx',
-    isInStock: ($) => !$('.bg-lightgreen .text-left .text-title-sm.block').text().includes('Back in stock soon'),
+    isInStock: ($) => !$('.bg-bread .text-left .text-title-sm.block').text().includes('Out of Stock'),
     inStock: false,
     updated: formatDate(),
     image: 'https://media.ao.com/Themes/Clients/AOL/AOL/Images/AO-logo-green-exclusion.png'
