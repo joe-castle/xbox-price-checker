@@ -59,7 +59,7 @@ module.exports = [
   {
     name: 'Amazon',
     uri: 'https://www.amazon.co.uk/dp/B08H93GKNJ/ref=twister_B08JHLMGZB?_encoding=UTF8&psc=1',
-    isInStock: ($) => !$('#availability span').text().includes('Currently unavailable.'),
+    isInStock: ($) => !$('#availability span').text().includes('Currently unavailable'),
     inStock: false,
     updated: formatDate(),
     image: 'https://www.freelogodesign.org/file/app/blog/20180911090509731amazon_logo_RGB.jpg'
