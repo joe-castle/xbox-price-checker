@@ -8,7 +8,7 @@ html
     h1 Xbox Price Checker
 
     each val in checkers
-      a(href=val.uri)
+      a(href=val.linkUri ? val.linkUri : val.uri target='_blank')
         div.media(class=val.inStock ? 'in-stock' : 'out-of-stock')
           img.mr-3(src=val.image height=150 width=150)
           .media-body

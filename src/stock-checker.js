@@ -5,7 +5,7 @@ const logger = require('./logger')('STOCK')
 const checkers = require('./checkers')
 const { formatDate } = require('./util')
 
-const { MAKER_KEY } = process.env
+const { MAKER_KEY, TRIGGER } = process.env
 
 const crawl = new Crawler({
   rotateUA: true,
@@ -23,6 +23,7 @@ module.exports = () => checkers.forEach((checker) => {
     callback: (err, res, done) => {
       if (err) {
         logger.error(err)
+        return
       }
 
       if (isInStock(res.$, res.body)) {
@@ -31,7 +32,7 @@ module.exports = () => checkers.forEach((checker) => {
         checker.inStock = true
         checker.updated = formatDate()
 
-        fetch(`https://maker.ifttt.com/trigger/xbox-available/with/key/${MAKER_KEY}`, {
+        fetch(`https://maker.ifttt.com/trigger/${TRIGGER}/with/key/${MAKER_KEY}`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ value1: name, value2: uri })
